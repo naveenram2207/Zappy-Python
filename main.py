@@ -4,6 +4,11 @@ from core.config import settings
 from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+@app.get("/")
+async def root():
+    return {"message": "Hello, FastAPI!"}
+
 # Set all CORS enabled origins
 if settings.BACKEND_CORS_ORIGINS:
     app.add_middleware(
